@@ -1,7 +1,6 @@
 gunicorn
 flask
 flask_session
-tempfile
 werkzeug.security
 datetime
 logging
@@ -11,6 +10,5 @@ matplotlib.pyplot
 countryinfo
 wget
 functools
-os
 csv
 numpy
