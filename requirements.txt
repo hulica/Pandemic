@@ -1,12 +1,12 @@
 gunicorn
 flask
 flask_session
-werkzeug.security
+werkzeug
 datetime
 logging
 configparser
 psycopg2
-matplotlib.pyplot
+matplotlib
 countryinfo
 wget
 functools
