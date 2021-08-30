@@ -16,28 +16,29 @@ import numpy as np
 # on the basis of https://www.postgresqltutorial.com/postgresql-python/transaction/
 def open_connection():
 
-    def config(filename='database.ini', section='postgresql'):
-        # create a parser
-        parser = ConfigParser()
-        # read config file
-        parser.read(filename)
+    # def config(filename='database.ini', section='postgresql'):
+    # create a parser
+    #   parser = ConfigParser()
+    # read config file
+    #  parser.read(filename)
 
-        # get section, default to postgresql
-        # params = {}
-        # if parser.has_section(section):
-        #     parameters = parser.items(section)
-        #     # takes out the section (postgresql) and puts the connection parameters in a dictionary as an output
-        #     for parameter in parameters:
-        #         params[parameter[0]] = parameter[1]
-        # else:
-        #     raise Exception(
-        #         'Section {0} not found in the {1} file'.format(section, filename))
+    # get section, default to postgresql
+    # params = {}
+    # if parser.has_section(section):
+    #     parameters = parser.items(section)
+    #     # takes out the section (postgresql) and puts the connection parameters in a dictionary as an output
+    #     for parameter in parameters:
+    #         params[parameter[0]] = parameter[1]
+    # else:
+    #     raise Exception(
+    #         'Section {0} not found in the {1} file'.format(section, filename))
 
-        # return params
+    # return params
 
     try:
+        print("connectiont próbálok")
         DATABASE_URL = os.environ['DATABASE_URL']
-        params = config()
+        #params = config()
 
         # Connect to postgreSQL database
         connection = psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -45,6 +46,7 @@ def open_connection():
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         connection.commit()
+        print("connection ready")
 
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
