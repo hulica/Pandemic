@@ -1,0 +1,5 @@
+database.ini
+game_setup.py
+postgres_proba_progi.py
+./static/img/graph_deaths.png
+./static/img/graph_infections.png

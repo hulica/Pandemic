@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Pandemic game setup
+{% endblock %}
+
+{% block main %}
+<section class="main py-3">
+    <div class="container pt-3">
+        <div class="row align-items-center pt-4">
+            <div class="col-lg-6 py-4">
+                <h1 class="Heading pt-3 mt-3">Let's set up your game!</h1>
+                <!-- ez a régi class: display-3 muted text-center -->
+                <p class="p-head">Enter your player number and difficulty level</p>
+                
+                <!-- form for players -->
+                <form action="/" method="post">
+                    <h5 class="errormessage">{{ message }}</h5>
+                    <select class="m-2" name="players">
+                        <option disabled selected value="">Number of players</option>
+                        {% for item in [2, 3, 4, 5] %}
+                        <!--- ide jön a userhez lekérdezett user portfolio -->
+                        <option value="{{ item }}">{{ item }} players</option>
+                        {% endfor %}
+                    </select>
+                    <select class="m-2" name="epidemic_cards">
+                        <option disabled selected value="">Epidemic cards</option>
+                        {% for item in [4, 5, 6] %}
+                        <!--- ide jön a userhez lekérdezett user portfolio -->
+                        <option value="{{ item }}">{{ item }} Epidemic cards</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn2 btn btn-primary my-3 center " type="submit">See game settings</button>
+                </form>
+            </div>       
+        
+
+            <div class="col-lg-6 text-center">
+                <!-- <i class="fas fa-viruses py-5"></i> -->
+                <img src="../static/img/zm7111_sample.png" alt="" class="img-fluid mt-5 py-4">    
+             </div>
+        </div>
+    </div>
+</div>
+<!-- flask requires that img is in the static folder, like: 
+
+<img src="../static/img/easter-3100341_640.jpg" alt="easter bunny 2." class="img-fluid">
+<img src="./static/easter-bunny.png" alt="easter bunny 3." class="img-fluid">
+<img src="../static/img/easter-bunny.png" alt="easter bunny 4." class="img-fluid">
+<img src="./static/easter-bunny.png" alt="easter bunny 5." class="img-fluid"> -->
+
+          
+
+<div class="row">
+    <div class="col text-center py-4">
+        <!-- <h4>{{ message }}</h4>
+        <img src="{{ picture }}"  class="img-fluid"> -->
+            
+    </div>
+</div>
+</section>
+{% endblock %}

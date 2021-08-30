@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Statistics
+{% endblock %}
+
+{% block main %}
+
+<section class="statistics">
+    <div class="container pt-2">
+
+        <!--game history  -->
+        <div class="row align-items-center">
+            <div class="col-lg-6 py-2">
+                <h1 class="Heading pt-4 mt-4">Game history</h1>
+                <!-- ez a régi class: display-3 muted text-center -->
+                <p class="p-head"> Your registered games: </p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col align-self-center">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>No. of players</th>
+                            <th>Epidemic cards</th>
+                            <th>Win / Loss</th>
+                            <th>Loss due to...</th>
+                            <th>Character</th>
+                            <th>Difficulty</th>
+                            <th>Comment</th>
+        
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        {% for game in game_history %}
+                        <tr>
+                                         
+                            <td>{{ game[7] }}</td>  <!-- dátum -->
+                            <td>{{ game[1] }}</td>  <!-- nr of players -->
+                            <td>{{ game[2] }}</td> <!-- epidemic cards -->
+                            <td>{{ game[3] }}</td> <!-- win - loss -->
+                            <td>{{ game[4] }}</td> <!-- loss due to -->
+                            
+                            <td>{{ game[5] }}</td> <!-- character -->
+                            <td>{% if game[2] == 4 %} Easy <!-- difficulty -->
+                                {% elif game[2] == 5 %} Hard
+                                {% elif game[2] == 6 %} Heroic
+                                {% elif game[2] == 7 %} Legendary
+                                {% endif %}</td>
+                            
+                            <td>{{ game[6] }}</td> <!-- comment -->
+        
+                        </tr>
+                        {% endfor %}
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        <!-- form for registering games-->
+        <div class="row align-items-center">
+            <div class="col py-2">
+                <h1 class="Heading pt-4 mt-4">Register your game:</h1>
+                
+                <h5 class="errormessage">{{ message }}</h5>
+            </div>
+        </div>
+        <form action="/statistics" method="post">
+        <div class="row justify-content-start">
+            <div class="col-md-8">
+                <select class="m-2" name="player_nr">
+                    <option disabled selected value="">Number of players</option>
+                    {% for item in [2,3,4,5] %}
+                    <option value="{{ item }}">{{ item }} players </option>
+                    {% endfor %}
+                </select>
+            
+                <select class="m-2" name="epidemic_nr">
+                    <option disabled selected value="">Number of epidemic cards</option>
+                    {% for item in [4, 5, 6, 7] %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+            
+                <select class="m-2" name="result">
+                    <option disabled selected value="">Win / Loss</option>
+                    {% for item in ["Win", "Loss"] %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+            
+                <select class="m-2" name="lost_due_to">
+                    <option disabled selected value="">Loss due to...</option>
+                    {% for item in ["Out of Time", "Out of cubes", "Outbreaks"] %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+            
+            
+                <select class="m-2" name="character">
+                    <option disabled selected value="">Character</option>
+                    {% for item in ["Researcher", "Scientist", "Medic", "Dispatcher", "Archivist", "Containment Specialist",
+                    "Troubleshooter", "Epidemiologist", "Field
+                    Operative", "Generalist", "Operations Expert"] %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+                
+
+                <input autocomplete="off" class="form-box" name="comment" placeholder="Other comments" type="text">
+                <button class="btn2 btn btn-primary my-3 center " type="submit">Register my game</button>
+            </div>
+                <div class="col-md-4">
+                    <img src="../static/img/zm7111_gamespread.png" alt="" class="img-fluid">
+                </div>
+                </div>
+        
+            </form>
+        </div>
+          
+{% endblock %}

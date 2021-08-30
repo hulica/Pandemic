@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block main %}
+<section class="main py-3">
+    <div class="container pt-3">
+        <div class="row align-items-center">
+            <div class="col-lg-6 py-4">
+                <h1 class="Heading pt-4 mt-4">Login to have your statistics</h1>
+                <!-- ez a régi class: display-3 muted text-center -->
+                <p class="p-head">Enter your username and password</p>
+                
+                <!-- form for players -->
+                <form action="/login" method="post">
+                    <h5 class="errormessage">{{ message }}</h5>
+                    <input autocomplete="off" autofocus class="form-control form-box" name="username" placeholder="Username" type="text">
+                    <input class="form-control form-box" name="password" placeholder="Password" type="password">
+                    <button class="btn2 btn btn-primary my-3 center " type="submit">Login</button>
+                </form>
+            </div>       
+        
+
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-globe-americas"></i></i>
+        
+             </div>
+        </div>
+    </div>
+</div>
+<!-- flask requires that img is in the static folder, like: 
+
+<img src="../static/img/easter-3100341_640.jpg" alt="easter bunny 2." class="img-fluid">
+<img src="./static/easter-bunny.png" alt="easter bunny 3." class="img-fluid">
+<img src="../static/img/easter-bunny.png" alt="easter bunny 4." class="img-fluid">
+<img src="./static/easter-bunny.png" alt="easter bunny 5." class="img-fluid"> -->
+
+          
+
+
+</section>
+{% endblock %}

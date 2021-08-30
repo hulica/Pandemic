@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <!-- http://getbootstrap.com/docs/5.0/ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2ea1378f41.js" crossorigin="anonymous"></script>
+
+    <link href="/static/styles.css" rel="stylesheet">
+
+
+
+    <title>Pandemic: {% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md shadow bg-white fixed-top">
+        <div class="container px-3">
+            <a class="navbar-brand" href="/"><img src="../static/img/zm7111_box_front_520px.png" alt="" class="logo">
+                Pandemic - the board game</a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Game setup</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/statistics">Game statistics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/covid">Check reality!</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                {% if session.user_id %}
+                    <a class="nav-link" href="/logout"><button class="Login">Logout</button></a>
+                {% else %}
+                    <a class="nav-link" href="/login"><button class="Login">Login</button></a>
+                    <a class="nav-link" href="/register"><button class="Login">Register</button></a>
+                {% endif %}
+                </div>
+        </div>
+    </nav>
+
+    
+
+
+    <main class="container py-5">
+        {% block main %}{% endblock %}
+    </main>
+
+    <!-- footer -->
+    <section class="footer">
+        <div class="container pt-4 pb-1">
+            <div class="row">
+                <div class="col-lg-3 px-2">
+                    <h3 class="pb-2">Project</h3>
+                    <p class="pera">CS50 Final Project: <br>
+                         Pandemic WEBapp</p>
+                </div>
+                <div class="col-lg-3 px-2">
+                    <h3 class="pb-2">About</h3>
+                    <p class="pera">Set-up assistance for "the virulent strain" variation of Pandemic board game</p>
+                </div>
+                <div class="col-lg-3 px-2">
+                    <h3 class="pb-2">Contact</h3>
+                    <p class="pera">
+                        linczer.andrea+webapp@gmail.com</p>
+                </div>
+                <div class="col-lg-3 px-2">
+                    <h3 class="pb-2">Code</h3>
+                    <!-- <span><a href=" "> <i class="fab fa-facebook"></i></a></span> -->
+                    <span><a href=" "> <i class="fab fa-github"></i></a></span>
+                    <!-- <span><a href=" "> <i class="fab fa-google-plus"></i></a></span> -->
+                    <!-- <span><a href=" "> <i class="fab fa-instagram"></i></a></span> -->
+                </div>
+            </div>
+            <hr>
+            <p class="text-center pt-1 pb-0 fst-italic">&copy; 2021 Andrea Linczer. All rights reserved.</p>
+        </div>
+    </section>
+
+
+    <!-- bootstrap javascript link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

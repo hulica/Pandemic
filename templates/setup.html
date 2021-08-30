@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Pandemic game setup
+{% endblock %}
+
+{% block main %}
+
+<section class="main py-3">
+    <div class="container pt-3">
+        <div class="row align-items-center pt-4">
+            <div class="col-lg-6 py-4">
+                <h1 class="Heading pt-3 mt-3">Let's set up your game!</h1>
+                <!-- ez a régi class: display-3 muted text-center -->
+                <p class="p-head">Give your player number and difficulty level</p>
+
+                <!-- form for players -->
+                <form action="/" method="post">
+                    <select class="m-2" name="players">
+                        <option disabled selected value="">Number of players</option>
+                        {% for item in [2, 3, 4, 5] %}
+                        <!--- ide jön a userhez lekérdezett user portfolio -->
+                        <option value="{{ item }}">{{ item }} players</option>
+                        {% endfor %}
+                    </select>
+                    <select class="m-2" name="epidemic_cards">
+                        <option disabled selected value="">Epidemic cards</option>
+                        {% for item in [4, 5, 6, 7] %}
+                        <!--- ide jön a userhez lekérdezett user portfolio -->
+                        <option value="{{ item }}">{{ item }} Epidemic cards</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn2 btn btn-primary my-3 center " type="submit">See game settings</button>
+                </form>
+            </div>
+
+
+            <div class="col-lg-6 text-center">
+                <!-- <i class="fas fa-viruses py-5"></i> -->
+                <img src="../static/img/zm7111_sample.png" alt="" class="img-fluid mt-5">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="setup py-2">
+        <div class="container pt-2">
+        <div class="row align-items-center">
+            <div class="col-lg-6 py-2">
+                <h1 class="Heading pt-4 mt-4">This is your setup:</h1>
+                <!-- ez a régi class: display-3 muted text-center -->
+                <p class="p-head"></p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center py-3">
+            
+            <div class="col-md-6 col-lg-4 pt-3">
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                    <p><i class="fas fa-user-md"></i></p>
+                    <h5>Players</h5>
+                    <h1 class="Cardheading">{{ game.players }}</h1>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4  pt-3">
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                <!--  card1 would be the class for blue cards bg-light class overwrites this -->
+                    <p><i class="fas fa-biohazard"></i></i></p>
+                    <h5>Epidemic cards</h5>
+                    <h1 class="Cardheading">{{ game.epidemic_cards }}</h1>
+                </div>
+            </div>
+            
+            
+            <div class="col-md-6 col-lg-4 pt-3">
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                    <p><i class="fas fa-cloud-moon"></i></p>
+                    <h5>Event cards</h5>
+                    <h1 class="Cardheading">{{ game.event_cards }}</h1>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 pt-3">
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                    <p><i class="far fa-hand-paper"></i></p>
+                    <h5>Players' starting hands</h5>
+                    <h1 class="Cardheading">{{ game.hand }}</h1>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4 pt-3">
+                <!-- 1. card -->
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                    <p><i class="fas fa-copy"></i></p>
+                    <h5>Shuffle decks</h5>
+            
+                    {% if game.number_of_bigger_part_decks > 0 %}
+                    <h1 class="Cardheading">{{ game.number_of_bigger_part_decks }} *
+                        {{game.bigger_part_deck}} +
+                        {{game.epidemic_cards - game.number_of_bigger_part_decks }} * {{ game.default_part_deck}}</h1>
+                        
+                        {% else %} 
+                        <h1 class="Cardheading"> {{game.epidemic_cards}} * {{ game.default_part_deck}}</h1>
+                        {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 pt-3">
+                <div class="card bg-light py-3 px-3 text-center border-0">
+                    <p><i class="far fa-question-circle"></i></p>
+                    <h5>Full rounds till end</h5>
+                    <h1 class="Cardheading">{{ game.rounds }}</h1>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 pt-3">
+                <div class="card py-3 px-3 text-center border-0">
+                    <p><i class="fas fa-dumbbell"></i></p>
+                    <h5>Difficulty</h5>
+                    <h1 class="Cardheading">{{ game.difficulty }}</h1>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section> <!-- end of pricing section -->
+
+
+
+
+{% endblock %}

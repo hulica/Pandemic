@@ -1,0 +1,16 @@
+gunicorn
+flask
+flask_session
+tempfile
+werkzeug.security
+datetime
+logging
+configparser
+psycopg2
+matplotlib.pyplot
+countryinfo
+wget
+functools
+os
+csv
+numpy
