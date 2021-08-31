@@ -22,6 +22,7 @@
 .navbar-brand {
   color: rgb(168, 3, 3);
   font-size: x-large;
+  font-weight: 490;
 }
 
 .navbar-brand:hover {
@@ -45,7 +46,7 @@
 }
 
 .Login:hover {
-  background-color: rgb(209, 4, 4);
+  background-color: rgb(199, 38, 38);
   border: none;
   transition: 0.3s;
 }
@@ -156,7 +157,8 @@
 }
 
 .setup .card1 {
-  background: rgb(209, 236, 234);
+  background: rgb(193, 214, 233);
+  /* background: rgb(189, 160, 160); */
   box-shadow: -1px 0px 19px -6px rgba(0, 0, 0, 0.63);
   -webkit-box-shadow: -1px 0px 19px -6px rgba(0, 0, 0, 0.63);
   -moz-box-shadow: -1px 0px 19px -6px rgba(0, 0, 0, 0.63);
@@ -169,7 +171,7 @@
 }
 
 .footer {
-  background: rgb(225, 240, 246);
+  background: rgb(216, 229, 238);
 }
 
 hr {
@@ -213,4 +215,15 @@ select,
 select:hover,
 .form-box:hover {
   border: 3px solid rgb(14, 77, 114);
+}
+
+.covid a {
+  color: rgb(14, 77, 114);
+  text-decoration: none;
+  font-weight: 610;
+}
+
+.covid a:hover {
+  color: rgb(168, 3, 3);
+  font-weight: 630;
 }
