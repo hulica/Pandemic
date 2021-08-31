@@ -36,17 +36,15 @@ def open_connection():
     # return params
 
     try:
-        print("connectiont próbálok")
+
         DATABASE_URL = os.environ['DATABASE_URL']
         #params = config()
-
         # Connect to postgreSQL database
         connection = psycopg2.connect(DATABASE_URL, sslmode='require')
 
         # Create a cursor to perform database operations
         cursor = connection.cursor()
         connection.commit()
-        print("connection ready")
 
     except (Exception, Error) as error:
         print("Error while connecting to PostgreSQL", error)
