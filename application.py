@@ -54,9 +54,15 @@ def statistics():
         connection.commit()
         game_history = cursor.fetchall()  # game_history will be a tuple (list of lists)
 
+        select_query = "SELECT username FROM users WHERE user_id = %s"
+        cursor.execute(select_query, (user_id,))
+
+        connection.commit()
+        username = cursor.fetchone()
+
         close_connection(connection, cursor)  # close PostgreSQL connection
 
-        return render_template("statistics.html", message=message, game_history=game_history)
+        return render_template("statistics.html", message=message, game_history=game_history, username=username)
 
     else:  # the form has been posted, the user registers its recent game into the database
         message = "Your game has been registered."
@@ -80,8 +86,15 @@ def statistics():
             cursor.execute(select_query, (user_id,))
             connection.commit()
             game_history = cursor.fetchall()  # game_history will be a tuple (list of lists)
+
+            select_query = "SELECT username FROM users WHERE user_id = %s"  # get username
+            cursor.execute(select_query, (user_id,))
+
+            connection.commit()
+            username = cursor.fetchone()
+
             close_connection(connection, cursor)  # close PostgreSQL connection
-            return render_template("statistics.html", message=message, game_history=game_history)
+            return render_template("statistics.html", message=message, game_history=game_history, username=username)
 
         else:
             # insert game into games table
@@ -97,8 +110,14 @@ def statistics():
             connection.commit()
             game_history = cursor.fetchall()  # game_history will be a tuple (list of lists)
 
+            select_query = "SELECT username FROM users WHERE user_id = %s"  # get username
+            cursor.execute(select_query, (user_id,))
+
+            connection.commit()
+            username = cursor.fetchone()
+
             close_connection(connection, cursor)  # close PostgreSQL connection
-            return render_template("statistics.html", message=message, game_history=game_history)
+            return render_template("statistics.html", message=message, game_history=game_history, username=username)
 
 
 @app.route("/login", methods=["GET", "POST"])
