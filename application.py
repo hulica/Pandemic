@@ -70,7 +70,7 @@ def statistics():
             lost_due_to = "N/A"
         character = request.form.get('character')
         comment = request.form.get('comment')
-        date_now = datetime.now()
+        date_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         if not player_nr or not epidemic_nr or not result:
             message = "Missing fields: please fill in number of players, epidemic cards and Win / Loss, at least."
