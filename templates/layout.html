@@ -22,17 +22,19 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md shadow bg-white fixed-top">
+    <nav class="navbar navbar-expand-md  shadow bg-white fixed-top">
         <div class="container px-3">
             <a class="navbar-brand" href="/"><img src="../static/img/zm7111_box_front_520px.png" alt="" class="logo">
-                Pandemic - the board game</a>
-            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                data-target="#navbar" data-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
+                Pandemic</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i title="" class="fa fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbar">
+            <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="navbar-nav m-auto">
+                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul> -->
                     <li class="nav-item"><a class="nav-link" href="/">Game setup</a></li>
                     <li class="nav-item"><a class="nav-link" href="/statistics">Game statistics</a></li>
                     <li class="nav-item"><a class="nav-link" href="/covid">Check reality!</a></li>
@@ -44,7 +46,8 @@
                     <a class="nav-link" href="/login"><button class="Login">Login</button></a>
                     <a class="nav-link" href="/register"><button class="Login">Register</button></a>
                 {% endif %}
-                </div>
+                </ul>
+            </div>
         </div>
     </nav>
 

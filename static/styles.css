@@ -6,13 +6,13 @@
 
 .nav-item {
   padding-right: 30px;
-  font-size: medium;
+  font-size: 18px;
   text-transform: uppercase;
 }
 
 .nav-link {
   font-weight: 600;
-  color: rgb(43, 43, 112);
+  color: rgb(14, 77, 114);
 }
 
 .nav-link:hover {
@@ -26,7 +26,7 @@
 }
 
 .navbar-brand:hover {
-  color: rgb(43, 43, 112);
+  color: rgb(14, 77, 114);
 }
 
 .logo {
@@ -54,7 +54,7 @@
 .Heading {
   font-size: 3rem;
   font-weight: 700;
-  color: rgb(43, 43, 112);
+  color: rgb(14, 77, 114);
 }
 
 .covid .Heading,
@@ -66,7 +66,7 @@
 .Cardheading {
   font-size: 2rem;
   font-weight: 700;
-  color: rgb(43, 43, 112);
+  color: rgb(14, 77, 114);
 }
 
 .Setup {
@@ -134,10 +134,8 @@
   transition: 0.5s;
 }
 
-.span {
-  font-size: larger;
-  font-weight: 500;
-  color: grey;
+.username {
+  color: rgb(168, 3, 3);
 }
 
 .pera {
@@ -180,7 +178,11 @@ hr {
 
 .footer i {
   color: black;
-  font-size: large;
+  font-size: x-large;
+}
+
+.footer i:hover {
+  color: rgb(168, 3, 3);
 }
 
 .footer .pera {
@@ -226,4 +228,8 @@ select:hover,
 .covid a:hover {
   color: rgb(168, 3, 3);
   font-weight: 630;
+}
+
+.navbar-toggler {
+  color: rgb(14, 77, 114);
 }

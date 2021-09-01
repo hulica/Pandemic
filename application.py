@@ -12,7 +12,7 @@ from helpers import game_setup, login_required, draw_covid_graph, open_connectio
 import logging
 
 
-log = logging.getLogger('werkzeug')
+# log = logging.getLogger('werkzeug')
 
 
 # Configure application
@@ -58,11 +58,14 @@ def statistics():
         cursor.execute(select_query, (user_id,))
 
         connection.commit()
-        username = cursor.fetchone()
+        result = cursor.fetchall()
+
+        username = result[0][0].capitalize()
+
+        print("username", username)
 
         close_connection(connection, cursor)  # close PostgreSQL connection
-
-        return render_template("statistics.html", message=message, game_history=game_history, username=username)
+        return render_template("statistics.html", message=message, game_history=game_history, result=result, username=username)
 
     else:  # the form has been posted, the user registers its recent game into the database
         message = "Your game has been registered."
@@ -91,10 +94,15 @@ def statistics():
             cursor.execute(select_query, (user_id,))
 
             connection.commit()
-            username = cursor.fetchone()
+
+            result = cursor.fetchall()
+
+            username = result[0][0].capitalize()
+
+            print("username", username)
 
             close_connection(connection, cursor)  # close PostgreSQL connection
-            return render_template("statistics.html", message=message, game_history=game_history, username=username)
+            return render_template("statistics.html", message=message, game_history=game_history, result=result, username=username)
 
         else:
             # insert game into games table
@@ -114,13 +122,17 @@ def statistics():
             cursor.execute(select_query, (user_id,))
 
             connection.commit()
-            username = cursor.fetchone()
+            result = cursor.fetchall()
+
+            username = result[0][0].capitalize()
+
+            # print("username", username)
 
             close_connection(connection, cursor)  # close PostgreSQL connection
-            return render_template("statistics.html", message=message, game_history=game_history, username=username)
+            return render_template("statistics.html", message=message, game_history=game_history, result=result, username=username)
 
 
-@app.route("/login", methods=["GET", "POST"])
+@ app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
 
@@ -163,7 +175,7 @@ def login():
         return render_template("login.html")
 
 
-@app.route("/logout")
+@ app.route("/logout")
 def logout():
     """Log user out"""
 
@@ -174,7 +186,7 @@ def logout():
     return redirect("/")
 
 
-@app.route("/register", methods=["GET", "POST"])
+@ app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
     # User reached route via POST (as by submitting a form via POST)
