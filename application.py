@@ -151,7 +151,7 @@ def login():
         username = request.form.get("username")
 
         connection, cursor = open_connection()  # open PostgreSQL database connection
-        select_query = "SELECT * FROM users where username = %s"
+        select_query = "SELECT user_id, hash FROM users where username = %s"
 
         cursor.execute(select_query, (username,))
         connection.commit()
@@ -166,6 +166,7 @@ def login():
         # Remember which user has logged in
         # user result[0][3] is the user_id of the first (and only) match
         session["user_id"] = result[0][0]
+        print(result[0][0])
 
         # Redirect user to statistics
         return redirect("/statistics")
@@ -233,6 +234,7 @@ def register():
                 hashed_pwd = generate_password_hash(password)
 
                 insert_query = 'INSERT INTO users (username, hash, email) VALUES (%s,%s,%s)'
+                # !!! itt debuggingból kicseréltem a hashed pwd-t passwordre, ezt majd vissza kell cserélni!!!
                 cursor.execute(insert_query, (username, hashed_pwd, email))
                 connection.commit()
                 # close PostgreSQL connection
@@ -240,6 +242,7 @@ def register():
 
                 # Redirect user to login page
                 message = "Thank you for registering, please log in!"
+                #message = username + " volt a username, a password pedig " + password
                 return render_template("login.html", message=message)
 
     # User reached route via GET (as by clicking a link or via redirect)
