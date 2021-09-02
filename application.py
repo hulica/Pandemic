@@ -165,7 +165,7 @@ def login():
 
         # Remember which user has logged in
         # user result[0][3] is the user_id of the first (and only) match
-        session["user_id"] = result[0][3]
+        session["user_id"] = result[0][0]
 
         # Redirect user to statistics
         return redirect("/statistics")
