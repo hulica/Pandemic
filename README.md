@@ -21,7 +21,7 @@ On the default page, the user can select the player number and the number of epi
 
 Then the page outputs all the data the players need to know to put together the players' deck: number of event cards, players' starting hands, shuffle decks and calculates the maximum number of rounds until the end of the game.  
 
-![game_setup_scrshot](https://user-images.githubusercontent.com/77074609/132104062-3cc468a9-5531-4e99-843b-1023616be429.jpg)  
+![setup2](https://user-images.githubusercontent.com/77074609/132104446-023def05-3fc9-4106-b139-a0a7b465a805.jpg)
 
 This can be used without registration / logging in. 
 
@@ -36,8 +36,7 @@ Registered users can record their games under statistics and then check out thei
 The app builds population proportionate COVID infection and fatality graphs based on the data provided by Johns Hopkins University Coronavirus Research Center.
 Users can pick one or two countries from the two dropdown menu and the app builds the graphs and displays in a png format.  
 
-![covid](https://user-images.githubusercontent.com/77074609/132104111-9d72949a-24e4-4805-9244-21de7f101bac.jpg)
-
+![nagycovid](https://user-images.githubusercontent.com/77074609/132104324-ef3856b9-78d8-4654-9f8e-dd56625341be.jpg)
 
   
 ## Main elements of the project
@@ -53,11 +52,13 @@ The project uses Flask framework and consists of the following files:
     - The database address is stored as an environment variable. Opening (and closing) a database connection are put into separate functions and called for prior (and after) each Select / Insert query to save on connection pool. Queries are constructed with SQL parameters in order to prevent injections.  
 
 - **HTML files** can be found in the template folder and rely on layout.html as a template. Styling is completed with Bootstrap classes and a styles.css stylesheet. Flask requires that images are located in the static/img folder.  
+
 - **Building COVID graphs** is the most complex part of the project from python point of view and it is done by prepare_infect_graph() function in **helpers.py**. 
     - First, the program downloads the raw data from Johns Hopkins University's Github repository in csv files. 
     - Then the program filters the data for the countries required by the user, gets the population data from the countryinfo library and calculates the population relative data. Some country names in Johns Hopkins' data slightly differ from that of countryinfo, so this is taken care of before getting the population data. 
     - A numpy array populates proper date format for the time series and pyplot builds and saves the graphs in png format which will be displayed in covid.html. The data files are deleted once they are not needed any more. 
 - For deployment on Heroku, the application uses **gunicorn** as web server and this is reflected in the **Procfile**, required by Heroku. 
+
 ## Authors
 
 - Linczer Andrea [@hulica](https://github.com/hulica)
