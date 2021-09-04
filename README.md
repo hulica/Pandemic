@@ -17,17 +17,26 @@ The app has three functions as follows.
 
 ### 1. Game start calculations
 
-On the default page, the user can select the player number and the number of epidemic cards they wish to play with. Then the page outputs all the data the players need to know to put together the players' deck: number of event cards, players' starting hands, shuffle decks and calculates the maximum number of rounds until the end of the game.
+On the default page, the user can select the player number and the number of epidemic cards they wish to play with.  
+
+Then the page outputs all the data the players need to know to put together the players' deck: number of event cards, players' starting hands, shuffle decks and calculates the maximum number of rounds until the end of the game.  
+
+![game_setup_scrshot](https://user-images.githubusercontent.com/77074609/132104062-3cc468a9-5531-4e99-843b-1023616be429.jpg)  
+
 This can be used without registration / logging in. 
 
 ### 2. Game history
 
-Registered users can record their games under statistics and then check out their game history.
+Registered users can record their games under statistics and then check out their game history.  
+ 
+![Game_history](https://user-images.githubusercontent.com/77074609/132104087-aa52fa4c-54f6-4b65-8845-9a4e8864cd48.jpg)  
 
 ### 3. Show real-time COVID data
 
 The app builds population proportionate COVID infection and fatality graphs based on the data provided by Johns Hopkins University Coronavirus Research Center.
 Users can pick one or two countries from the two dropdown menu and the app builds the graphs and displays in a png format.  
+
+![covid](https://user-images.githubusercontent.com/77074609/132104111-9d72949a-24e4-4805-9244-21de7f101bac.jpg)
 
 
   
