@@ -1,7 +1,7 @@
 
 # Pandemic Game Assistant WebApp
 
-#### Video demo: https://www.youtoube.com/...
+#### Video demo: https://youtu.be/seAECzwYRk8
 The web application is related to my favorite board game: ***Pandemic: on the brink***. It is a cooperative game where players work as a team to treat infections around the world while gathering resources for cures.  
 
 The purpose of this app is to make the setup of the game quicker and to keep track of the wins and defeats of users.  
@@ -58,10 +58,6 @@ The project uses Flask framework and consists of the following files:
     - Then the program filters the data for the countries required by the user, gets the population data from the countryinfo library and calculates the population relative data. Some country names in Johns Hopkins' data slightly differ from that of countryinfo, so this is taken care of before getting the population data. 
     - A numpy array populates proper date format for the time series and pyplot builds and saves the graphs in png format which will be displayed in covid.html. The data files are deleted once they are not needed any more. 
 - For deployment on Heroku, the application uses **gunicorn** as web server and this is reflected in the **Procfile**, required by Heroku. 
-
-## Authors
-
-- Linczer Andrea [@hulica](https://github.com/hulica)
 
   
 ## Documentation
@@ -151,6 +147,12 @@ Python, Flask, PostgreSQL, Heroku
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Authors
+
+- Linczer Andrea [@hulica](https://github.com/hulica)
+
+
 ## 🚀 About Me
 I'm in finance in the phase of changing my career and learning how to code. 
 
