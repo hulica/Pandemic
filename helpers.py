@@ -15,25 +15,6 @@ import numpy as np
 # helper funcion for progresql database connection
 # on the basis of https://www.postgresqltutorial.com/postgresql-python/transaction/
 def open_connection():
-    # # The below outcommented part could be used to set up a connection to a local database if one creates a database.ini file:
-    # def config(filename='database.ini', section='postgresql'):
-    # create a parser
-    #   parser = ConfigParser()
-    # read config file
-    #  parser.read(filename)
-
-    # get section, default to postgresql
-    # params = {}
-    # if parser.has_section(section):
-    #     parameters = parser.items(section)
-    #     # takes out the section (postgresql) and puts the connection parameters in a dictionary as an output
-    #     for parameter in parameters:
-    #         params[parameter[0]] = parameter[1]
-    # else:
-    #     raise Exception(
-    #         'Section {0} not found in the {1} file'.format(section, filename))
-
-    # return params
 
     try:
 
