@@ -10,7 +10,7 @@ The app is deployed on Heroku and is available under https://pandemic-setup.hero
 
 ## Features
 
-The app has three functions as follows.
+The app has two functions as follows.
 
 ### 1. Game start calculations
 
@@ -28,13 +28,6 @@ Registered users can record their games under statistics and then check out thei
 
 ![Game_history](https://user-images.githubusercontent.com/77074609/132104087-aa52fa4c-54f6-4b65-8845-9a4e8864cd48.jpg)
 
-### 3. Show real-time COVID data
-
-The app builds population proportionate COVID infection and fatality graphs based on the data provided by Johns Hopkins University Coronavirus Research Center.
-Users can pick one or two countries from the two dropdown menu and the app builds the graphs and displays in a png format.
-
-![nagycovid](https://user-images.githubusercontent.com/77074609/132104324-ef3856b9-78d8-4654-9f8e-dd56625341be.jpg)
-
 ## Main elements of the project
 
 The project uses Flask framework and consists of the following files:
@@ -49,10 +42,6 @@ The project uses Flask framework and consists of the following files:
 
 - **HTML files** can be found in the template folder and rely on layout.html as a template. Styling is completed with Bootstrap classes and a styles.css stylesheet. Flask requires that images are located in the static/img folder.
 
-- **Building COVID graphs** is the most complex part of the project from python point of view and it is done by prepare_infect_graph() function in **helpers.py**.
-  - First, the program downloads the raw data from Johns Hopkins University's Github repository in csv files.
-  - Then the program filters the data for the countries required by the user, gets the population data from the countryinfo library and calculates the population relative data. Some country names in Johns Hopkins' data slightly differ from that of countryinfo, so this is taken care of before getting the population data.
-  - A numpy array populates proper date format for the time series and pyplot builds and saves the graphs in png format which will be displayed in covid.html. The data files are deleted once they are not needed any more.
 - For deployment on Heroku, the application uses **gunicorn** as web server and this is reflected in the **Procfile**, required by Heroku.
 
 ## Documentation
