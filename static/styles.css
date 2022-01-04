@@ -185,6 +185,17 @@ hr {
   color: rgb(168, 3, 3);
 }
 
+.footer a {
+  color: black;
+  font-size: medium;
+  text-decoration: none;
+}
+
+
+.footer a:hover {
+  color: rgb(168, 3, 3);
+}
+
 .footer .pera {
   font-size: 15px;
 }
