@@ -6,3 +6,5 @@ postgres_proba_progi.py
 .env
 datum.py
 countries.csv
+
+venv/**
