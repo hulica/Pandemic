@@ -2,14 +2,11 @@ from configparser import ConfigParser
 import psycopg2
 from psycopg2 import Error
 
-import matplotlib.pyplot as plt
-from countryinfo import CountryInfo
-import wget
+
 from flask import redirect, session
 from functools import wraps
 import os
-import csv
-import numpy as np
+
 
 
 # helper funcion for progresql database connection
@@ -83,7 +80,7 @@ def game_setup(players, epidemic_cards):
 
     # constants
     CITY_CARDS = 48
-    BASIC_EVENTS = 5
+    # BASIC_EVENTS = 5
     hand = get_player_hand(players)
     event_cards = players * 2
     difficulty = get_difficulty(epidemic_cards)
